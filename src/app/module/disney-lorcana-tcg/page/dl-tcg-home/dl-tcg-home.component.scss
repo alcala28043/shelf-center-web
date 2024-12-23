@@ -1,0 +1,31 @@
+.mat-mdc-card-title {
+    font-size: larger;
+}
+.mat-mdc-card-image{
+    padding: 1em;
+} 
+.catalog-copyright {
+    font-size: xx-small;
+}
+.catalog-card{
+    background-color: rgba(211, 186, 132, 0.8);
+}
+.set-cards-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+//CARD
+.set-card-wrapper {
+    cursor: pointer;
+}
+.set-card {
+    height: 12em;
+    background-color: rgba(55, 59, 112, 0.5);
+    justify-content: center;
+
+}

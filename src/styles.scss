@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './app/module/disney-lorcana-tcg/theme/theme.scss' as dl-tcg;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html {
+    @include mat.toolbar-overrides((
+      standard-height: 8%,
+      mobile-height: 8%
+    ));
+}
+
+.mdc-card {
+  margin: 1em;
+}
+
+.theme-dl-tcg-light {  
+  @include mat.theme(dl-tcg.$theme-light);
+  @include mat.all-component-themes(dl-tcg.$theme-light);
+}
+.theme-dl-tcg-dark {  
+  @include mat.theme(dl-tcg.$theme-dark);
+  @include mat.all-component-themes(dl-tcg.$theme-dark);
+}

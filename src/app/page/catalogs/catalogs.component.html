@@ -1,0 +1,7 @@
+<div class="catalogs-row">
+@for (catalog of catalogs; track catalog) {
+    @if (catalog.status == 1) {
+        <app-catalog-card [catalog]=catalog/>
+    }
+}
+</div>

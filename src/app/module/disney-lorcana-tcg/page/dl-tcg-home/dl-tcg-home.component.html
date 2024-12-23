@@ -1,0 +1,33 @@
+<!-- <p>{{catalog.id}}</p>
+<p>{{catalog.avatar}}</p>
+<p>{{catalog.url}}</p>
+<p>{{catalog.title}}</p>
+<p>{{catalog.copyright}}</p>
+<p>{{catalog.disclaimer}}</p>
+<p>{{catalog.image}}</p>
+<p>{{catalog.status}}</p> -->
+
+<mat-card class="catalog-card" appearance="outlined" title="{{catalog.title}}">
+    <mat-card-header>
+        <mat-card-title></mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <img width="256px" src="{{catalog.image}}" alt="{{catalog.title}}">
+        <p class="catalog-copyright">
+            {{catalog.title + ' ' + catalog.copyright}} - {{catalog.disclaimer}}
+        </p>
+    </mat-card-content>
+</mat-card>
+
+<div class="set-cards-wrapper">
+    @for(set of sets; track set) {
+        <div class="set-card-wrapper" routerLink="./set/{{set.Set_ID}}">
+            <mat-card class="set-card" appearance="outlined"  title="{{set.Name}}">
+                <mat-card-content>
+                    <img width="256px" src="/disney-lorcana-tcg/img/logos/dl-tcg-logo-{{set.Set_ID}}.png" alt="{{set.Name}}">
+                </mat-card-content>
+            </mat-card>
+        </div>
+    }
+</div>

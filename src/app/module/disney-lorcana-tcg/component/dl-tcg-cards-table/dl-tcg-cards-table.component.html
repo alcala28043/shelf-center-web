@@ -1,0 +1,50 @@
+<mat-card appearance="outlined" class="dl-tcg-cards-table mat-elevation-z8">
+    <mat-card-content>
+        <table mat-table matSort [dataSource]="dataSource" class="dl-tcg-cards-table mat-elevation-z8">
+            @for (displayedColumn of displayedColumns; track displayedColumn) {
+                @switch (displayedColumn) {
+                    @case ("Actions") {    
+                        <!-- Actions Column -->
+                        <ng-container matColumnDef="Actions">
+                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <button mat-icon-button [routerLink]="['./set/'+element.Set_ID]" aria-label="View set icon">
+                                    <mat-icon>manage_search</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+                    }
+                    @case ("Image") {
+                        <ng-container [matColumnDef]="displayedColumn">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{displayedColumn}} </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <a mat-icon-button target="_blank" href="{{element[displayedColumn]}}">
+                                    <mat-icon>photo_camera</mat-icon>
+                                </a>
+                            </td>
+                        </ng-container> 
+                    }
+                    @case ("Color") {
+                        <ng-container [matColumnDef]="displayedColumn">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{displayedColumn}} </th>
+                            <td mat-cell *matCellDef="let element"> 
+                            <app-dl-tcg-color-icon name="{{element[displayedColumn]}}"/> 
+                            </td>
+                        </ng-container> 
+                    }
+                    @default {
+                        <ng-container [matColumnDef]="displayedColumn">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{displayedColumn}} </th>
+                            <td mat-cell *matCellDef="let element"> {{element[displayedColumn]}} </td>
+                        </ng-container>   
+                    }
+                }
+            }
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+        </table>
+        <mat-paginator [pageSizeOptions]="[ 10, 100 ]" showFirstLastButtons aria-label="Select page of sets"></mat-paginator>
+    </mat-card-content>
+</mat-card>
